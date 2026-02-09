@@ -93,7 +93,7 @@ p {
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 80px;
     position: relative;
 }
 
@@ -102,14 +102,14 @@ p {
 }
 
 .btn {
-    width: 140px;
+    width: 100px;
     cursor: pointer;
     user-select: none;
 }
 
 .yes-btn,
 .no-btn {
-width: 140px;
+width: 100px;
 height: auto;
 display: inline-block;
 }
@@ -124,7 +124,7 @@ display: inline-block;
 .no-btn {
     z-index: 2;
     position: relative;
-    transition: transform 0.15s ease;
+    transition: transform 0.3s ease;
     cursor: default;
 }
 
