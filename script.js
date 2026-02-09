@@ -24,8 +24,8 @@ envelope.addEventListener("click", () => {
 
 noBtn.style.position = "absolute";
 
-noBtn.addEventListener("mouseenter", () => {
-  const padding = 40;
+function moveNoButton() {
+  const padding = 30;
 
   const maxX = window.innerWidth - noBtn.offsetWidth - padding;
   const maxY = window.innerHeight - noBtn.offsetHeight - padding;
@@ -35,8 +35,12 @@ noBtn.addEventListener("mouseenter", () => {
 
   noBtn.style.left = `${x}px`;
   noBtn.style.top = `${y}px`;
-});
+}
 
+// desktop
+noBtn.addEventListener("mouseenter", moveNoButton);
+// mobile
+noBtn.addEventListener("touchstart", moveNoButton);
 // Logic to make YES btn to grow
 
 // Logic to make YES btn grow + shake (FIXED)
@@ -44,16 +48,17 @@ noBtn.addEventListener("mouseenter", () => {
 
 let yesScale = 1;
 
+// RESET any leftover centering
+yesBtn.style.position = "relative";
+yesBtn.style.transform = "scale(1)";
 yesBtn.style.transformOrigin = "center center";
 yesBtn.style.transition = "transform 0.25s ease";
 
 noBtn.addEventListener("click", () => {
-  yesScale += 0.35;
+  yesScale += 0.3;
 
-  // grow in place
   yesBtn.style.transform = `scale(${yesScale})`;
 
-  // shake (does NOT reset scale)
   yesBtn.animate(
     [
       { transform: `scale(${yesScale}) rotate(0deg)` },
