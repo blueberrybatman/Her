@@ -22,20 +22,6 @@ envelope.addEventListener("click", () => {
 
 // Logic to move the NO btn
 
-noBtn.style.position = "absolute";
-
-noBtn.addEventListener("mouseover", () => {
-    const padding = 20;
-
-    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
-    noBtn.style.left = `${x}px`;
-    noBtn.style.top = `${y}px`;
-});
 
 // Logic to make YES btn grow + shake (FIXED)
 
