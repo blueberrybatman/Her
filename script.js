@@ -22,54 +22,46 @@ envelope.addEventListener("click", () => {
 
 // Logic to move the NO btn
 
-noBtn.addEventListener("mouseover", () => {
-    const min = 90;
-    const max = 100;
+noBtn.style.position = "absolute";
 
-    const distance = Math.random() * (max - min) + min;
-    const angle = Math.random() * Math.PI * 2;
+noBtn.addEventListener("mouseenter", () => {
+  const padding = 40;
 
-    const moveX = Math.cos(angle) * distance;
-    const moveY = Math.sin(angle) * distance;
+  const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+  const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
-    noBtn.style.transition = "transform 0.3s ease";
-    noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
 });
 
 // Logic to make YES btn to grow
 
 // Logic to make YES btn grow + shake (FIXED)
 
-let yesScale = 1;
-let isFixed = false;
 
+let yesScale = 1;
+
+yesBtn.style.transformOrigin = "center center";
 yesBtn.style.transition = "transform 0.25s ease";
 
 noBtn.addEventListener("click", () => {
-  yesScale += 0.2;
+  yesScale += 0.35;
 
-  if (!isFixed) {
-    yesBtn.style.position = "fixed";
-    yesBtn.style.top = "50%";
-    yesBtn.style.left = "50%";
-    isFixed = true;
-  }
+  // grow in place
+  yesBtn.style.transform = `scale(${yesScale})`;
 
-  // force reflow so browser registers scale change
-  yesBtn.offsetWidth;
-
-  // APPLY SCALE ONLY
-  yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
-
-  // SHAKE using animation (does NOT override transform)
+  // shake (does NOT reset scale)
   yesBtn.animate(
     [
-      { transform: `translate(-50%, -50%) scale(${yesScale})` },
-      { transform: `translate(-50%, -50%) scale(${yesScale}) rotate(2deg)` },
-      { transform: `translate(-50%, -50%) scale(${yesScale}) rotate(-2deg)` },
-      { transform: `translate(-50%, -50%) scale(${yesScale}) rotate(0deg)` }
+      { transform: `scale(${yesScale}) rotate(0deg)` },
+      { transform: `scale(${yesScale}) rotate(2deg)` },
+      { transform: `scale(${yesScale}) rotate(-2deg)` },
+      { transform: `scale(${yesScale}) rotate(0deg)` }
     ],
-    { duration: 250 }
+    { duration: 250, easing: "ease-in-out" }
   );
 });
 
