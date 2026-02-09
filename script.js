@@ -43,7 +43,6 @@ noBtn.addEventListener("mouseover", () => {
 let yesScale = 1;
 let isFixed = false;
 
-yesBtn.style.transformOrigin = "center center";
 yesBtn.style.transition = "transform 0.25s ease";
 
 noBtn.addEventListener("click", () => {
