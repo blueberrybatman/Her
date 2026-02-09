@@ -38,17 +38,16 @@ noBtn.addEventListener("mouseover", () => {
 
 // Logic to make YES btn to grow
 
- // Logic to make YES btn grow + shake
+// Logic to make YES btn grow + shake (FIXED)
 
 let yesScale = 1;
 let isFixed = false;
 
 yesBtn.style.transformOrigin = "center center";
-yesBtn.style.transition = "transform 0.3s ease";
+yesBtn.style.transition = "transform 0.25s ease";
 
-// reuse NO click (don’t remove your hover logic)
 noBtn.addEventListener("click", () => {
-  yesScale += 0.35; // smooth growth (2 was too aggressive)
+  yesScale += 0.4;
 
   if (!isFixed) {
     yesBtn.style.position = "fixed";
@@ -57,22 +56,21 @@ noBtn.addEventListener("click", () => {
     isFixed = true;
   }
 
-  // grow
+  // force reflow so browser registers scale change
+  yesBtn.offsetWidth;
+
+  // APPLY SCALE ONLY
   yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
 
-  // shake (JS-only, no CSS needed)
+  // SHAKE using animation (does NOT override transform)
   yesBtn.animate(
     [
-      { transform: `translate(-50%, -50%) scale(${yesScale}) rotate(0deg)` },
+      { transform: `translate(-50%, -50%) scale(${yesScale})` },
       { transform: `translate(-50%, -50%) scale(${yesScale}) rotate(2deg)` },
       { transform: `translate(-50%, -50%) scale(${yesScale}) rotate(-2deg)` },
-      { transform: `translate(-50%, -50%) scale(${yesScale}) rotate(2deg)` },
       { transform: `translate(-50%, -50%) scale(${yesScale}) rotate(0deg)` }
     ],
-    {
-      duration: 300,
-      easing: "ease-in-out"
-    }
+    { duration: 250 }
   );
 });
 
