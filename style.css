@@ -27,7 +27,7 @@ body {
 }
 
 #envelope{
-    width: 200px;
+    width: 500px;
     animation: pulse 1.5s infinite;
     cursor: pointer;
 }
@@ -80,13 +80,13 @@ p {
 /* Cat */
 
 .cat {
-    width: 250px;
+    width: 200px;
     margin: 10px 0;
     transition: width 0.4s ease;
 }
 
 .letter-window.final .cat {
-    width: 180px;
+    width: 200px;
 }
 
 /* buttons */
@@ -102,7 +102,7 @@ p {
 }
 
 .btn {
-    width: 120px;
+    width: 140px;
     cursor: pointer;
     user-select: none;
 }
