@@ -27,7 +27,7 @@ body {
 }
 
 #envelope{
-    width: 700px;
+    width: 550px;
     animation: pulse 1.5s infinite;
     cursor: pointer;
 }
@@ -42,7 +42,7 @@ body {
 
 .letter-window{
     width: 110vw;
-    max-width: 700px;
+    max-width: 600px;
     aspect-ratio: 3/2;
     padding: 20px 20px 0 20px;
     display: flex;
@@ -80,13 +80,13 @@ p {
 /* Cat */
 
 .cat {
-    width: 230px;
+    width: 130px;
     margin: 10px 0;
     transition: width 0.4s ease;
 }
 
 .letter-window.final .cat {
-    width: 400px;
+    width: 350px;
 }
 
 /* buttons */
@@ -102,14 +102,14 @@ p {
 }
 
 .btn {
-    width: 250px;
+    width: 150px;
     cursor: pointer;
     user-select: none;
 }
 
 .yes-btn,
 .no-btn {
-width: 250px;
+width: 150px;
 height: auto;
 display: inline-block;
 }
