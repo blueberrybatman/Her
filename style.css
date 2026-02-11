@@ -27,7 +27,7 @@ body {
 }
 
 #envelope{
-    width: 550px;
+    width: 370px;
     animation: pulse 1.5s infinite;
     cursor: pointer;
 }
